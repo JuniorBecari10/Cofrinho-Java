@@ -21,8 +21,7 @@ public class Main {
             
             System.out.println("\n0 - Sair\n");
             
-            System.out.print("> ");
-            int opcao = s.nextInt();
+            int opcao = inputInt("> ");
             
             switch (opcao) {
                 case 0:
@@ -41,8 +40,7 @@ public class Main {
                     System.out.println("2 - Euro");
                     System.out.println("3 - Dolar\n");
                     
-                    System.out.print("> ");
-                    int moeda = s.nextInt();
+                    int moeda = inputInt("> ", 1, 3);
                     
                     clear();
                     
@@ -50,8 +48,8 @@ public class Main {
                     System.out.println("Voce tem R$ " + est.getReais() + "\n");
                     
                     System.out.println("Qual o valor?\n");
-                    System.out.print("> ");
-                    double valor = s.nextDouble();
+                    
+                    double valor = inputDouble("> ");
                     
                     est.adicionar(valor, moeda);
                     break;
@@ -68,8 +66,7 @@ public class Main {
                     System.out.println("2 - Euro");
                     System.out.println("3 - Dolar\n");
                     
-                    System.out.print("> ");
-                    moeda = s.nextInt();
+                    moeda = inputInt("> ", 1, 3);
                     
                     clear();
                     
@@ -77,8 +74,8 @@ public class Main {
                     System.out.println("Voce tem R$ " + est.getReais() + "\n");
                     
                     System.out.println("Qual o valor?\n");
-                    System.out.print("> ");
-                    valor = s.nextDouble();
+                    
+                    valor = inputDouble("> ");
                     
                     est.remover(valor, moeda);
                     
@@ -95,8 +92,7 @@ public class Main {
                     System.out.println("1 - Seu saldo (R$ " + est.getReais() + ")");
                     System.out.println("2 - Valor definido\n");
                     
-                    System.out.print("> ");
-                    int op = s.nextInt();
+                    int op = inputInt("> ", 1, 2);
                     
                     clear();
                     
@@ -110,15 +106,15 @@ public class Main {
                             break;
                         case 2:
                             System.out.println("Qual o valor (Em Reais)?\n");
-                            System.out.print("> ");
-                            valor = s.nextDouble();
+                            
+                            valor = inputDouble("> ");
                             
                             System.out.println("Em Dolar: " + est.realParaDolar(valor));
                             System.out.println("Em Euro: " + est.realParaEuro(valor));
                             break;
                     }
                     
-                    System.out.println("\nPressione Enter para continuar");
+                    System.out.println("\nPressione Enter para continuar.");
                     
                     try {
                         System.in.read();
@@ -127,6 +123,63 @@ public class Main {
                     break;
             }
         }
+    }
+    
+    public static int inputInt(String prompt) {
+        int ret = 0;
+        
+        while (true) {
+            try {
+                Scanner sc = new Scanner(System.in);
+                System.out.print(prompt);
+                ret = sc.nextInt();
+                
+                break;
+            } catch (Exception e) {
+                continue;
+            }
+        }
+        
+        return ret;
+    }
+    
+    public static int inputInt(String prompt, int start, int end) {
+        int ret = 0;
+        
+        while (true) {
+            try {
+                Scanner sc = new Scanner(System.in);
+                System.out.print(prompt);
+                ret = sc.nextInt();
+                
+                if (ret < start || ret > end)
+                    continue;
+                
+                break;
+            } catch (Exception e) {
+                continue;
+            }
+        }
+        
+        return ret;
+    }
+    
+    public static double inputDouble(String prompt) {
+        double ret = 0;
+        
+        while (true) {
+            try {
+                Scanner sc = new Scanner(System.in);
+                System.out.print(prompt);
+                ret = sc.nextDouble();
+                
+                break;
+            } catch (Exception e) {
+                continue;
+            }
+        }
+        
+        return ret;
     }
     
     public static void clear() {
