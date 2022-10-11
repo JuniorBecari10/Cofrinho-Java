@@ -1,4 +1,4 @@
-package trabalho;
+package Trabalho;
 
 public class Estoque {
     public static final double DOLAR = 5.20;

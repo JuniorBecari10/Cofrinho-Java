@@ -1,4 +1,4 @@
-package trabalho;
+package Trabalho;
 
 import java.util.Scanner;
 import java.io.File;
