@@ -23,11 +23,11 @@ public class Estoque {
                 this.reais += valor;
                 break;
             case 2:
-                valor = converterEuro(valor);
+                valor = euroParaReal(valor);
                 this.reais += valor;
                 break;
             case 3:
-                valor = converterDolar(valor);
+                valor = dolarParaReal(valor);
                 this.reais += valor;
                 break;
         }
@@ -45,23 +45,29 @@ public class Estoque {
                 this.reais -= valor;
                 break;
             case 2:
-                valor = converterEuro(valor);
+                valor = euroParaReal(valor);
                 this.reais -= valor;
                 break;
             case 3:
-                valor = converterDolar(valor);
+                valor = dolarParaReal(valor);
                 this.reais -= valor;
                 break;
         }
     }
     
-    // Vamos converter de dolar para real, pois o Estoque é em reais
-    public double converterDolar(double dolar) {
+    public double realParaDolar(double rs) {
+        return rs / DOLAR;
+    }
+    
+    public double realParaEuro(double rs) {
+        return rs / EURO;
+    }
+    
+    public double dolarParaReal(double dolar) {
         return dolar * DOLAR;
     }
     
-    // O mesmo
-    public double converterEuro(double euro) {
+    public double euroParaReal(double euro) {
         return euro * EURO;
     }
 }

@@ -15,6 +15,7 @@ public class Main {
             
             System.out.println("1 - Adicionar Moedas");
             System.out.println("2 - Remover Moedas");
+            System.out.println("3 - Converter Moedas");
             
             System.out.println("\n0 - Sair\n");
             
@@ -43,6 +44,7 @@ public class Main {
                     System.out.println("-----------");
                     
                     break;
+               
                case 2:
                     System.out.println("Selecione uma moeda para remover:\n");
                     
@@ -61,6 +63,34 @@ public class Main {
                     System.out.println("-----------");
                     
                     break;
+                
+                case 3:
+                    System.out.println("O que deseja converter?\n");
+                    
+                    System.out.println("1 - Seu saldo (R$ " + est.getReais() + ")");
+                    System.out.println("2 - Valor definido\n");
+                    
+                    System.out.print("> ");
+                    int op = s.nextInt();
+                    
+                    switch (op) {
+                        case 1:
+                            System.out.println("Em Dolar: " + est.realParaDolar(est.getReais()));
+                            System.out.println("Em Euro: " + est.realParaEuro(est.getReais()));
+                            
+                            System.out.println("-----------");
+                            break;
+                        case 2:
+                            System.out.println("Qual o valor (Em Reais)?");
+                            System.out.print("> ");
+                            valor = s.nextDouble();
+                            
+                            System.out.println("Em Dolar: " + est.realParaDolar(valor));
+                            System.out.println("Em Euro: " + est.realParaEuro(valor));
+                            
+                            System.out.println("-----------");
+                            break;
+                    }
             }
             
         }
