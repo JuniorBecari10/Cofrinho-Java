@@ -16,5 +16,14 @@ public class Principal {
         System.out.println("0 - Encerrar");
         
         opcao = teclado.nextInt();
+        
+        Estoque estoque = new Estoque;
+        
+        int tipoMoeda;
+        while (opcao != 0) {
+            switch (opcao) {
+                
+            }
+        }
     }
 }
